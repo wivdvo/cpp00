@@ -1,23 +1,25 @@
-#include <string>
-#include "contact.hpp"
+#ifndef PHONEBOOK_HPP
+#define PHONEBOOK_HPP
 
+#include "contact.hpp"
+#include <string>
+#include <iostream>
+#include <iomanip>
+#include <sstream>
+
+class Contact;
 class Phonebook {
 	public:
-		Phonebook();
+		Phonebook(void);
 		~Phonebook();
-
-		void addContact(const std::string& firstName, const std::string& lastName, const std::string& nickname,
-				const std::string& phoneNumber, const std::string& darkestSecret) {
-		}
-
-		// contact findContact() {
-
-		// }
+		void addContacts(void);
+		void lstAllContacts(void);
+		void search(void);
+		std::string fixStrLen(std::string);
 
 	private:
-		Contact contacts[8];
-		int nb_contact;
-
-
-
+		Contact _contacts[8];
+		int 	_nbContact;
 };
+
+#endif
