@@ -92,21 +92,25 @@ void Phonebook::search(void) {
 	for (i = 0; i < _nbContact; i++) {
 		std::cout << std::setw(10) << i 
 					<< "|" << fixStrLen(_contacts[i].retFirstName()) 
-					<< "|" <<  fixStrLen(_contacts[i].retLastName()) 
+					<< "|" << fixStrLen(_contacts[i].retLastName()) 
 					<< "|" << fixStrLen(_contacts[i].retNickName()) << std::endl;
 	}
 	while (1) {
 		std::cout << "input number of contact to get full info" << std::endl;
-		std::cin, input;
+		std::getline(std::cin, input);
+		if (input.size() > 1) {
+			continue;
+		}
+		if (!std::isdigit(input[0]))
+			continue;
 		std::istringstream iss(input);
 		iss >> nbInput;
-		if (nbInput >= 0 && nbInput <= 7)
+		(void)input;
+		if (nbInput >= 0 && nbInput <= _nbContact - 1) {
 			break;
-		else
-			std::cout << "try again" << std::endl;
+		}
 	}
-	std::cout << _contacts[nbInput].lstOneContact << sdt::endl;
-
+	_contacts[nbInput].lstOneContact();
 }
 
 
