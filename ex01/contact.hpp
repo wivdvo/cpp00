@@ -2,6 +2,7 @@
 #define CONTACT_HPP
 
 #include <string>
+#include <sstream>
 
 class Contact {
 	public:
@@ -21,8 +22,5 @@ class Contact {
 		std::string _phoneNumber;
 		std::string _darkestSecret;
 };
-
-
-
 
 #endif

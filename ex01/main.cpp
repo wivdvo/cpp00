@@ -11,13 +11,13 @@ int main() {
 	std::cout << "type EXIT to exit" << std::endl;
 
 	while (1) {
-		std::getline(std::cin, input);
+		if (!std::getline(std::cin, input))
+			return (1);
+
 		if (input == "ADD") {
-			std::cout << "adding" << std::endl;
 			myPhonebook.addContacts();
 		}
 		else if (input == "SEARCH") {
-			std::cout << "searching" << std::endl;
 			myPhonebook.search();
 		}
 		else if (input == "EXIT") {

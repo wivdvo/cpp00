@@ -19,27 +19,39 @@ void Phonebook::addContacts(void) {
 	while (firstName.empty())
 	{
 		std::cout << "enter first name:" <<std::endl;
-		std::getline(std::cin, firstName);
+		if (!std::getline(std::cin, firstName))
+			return ;
 	}
 	while (lastName.empty())
 	{
 		std::cout << "enter last name:" <<std::endl;
-		std::getline(std::cin, lastName);
+		if (!std::getline(std::cin, lastName))
+			return ;
 	}
 	while (nickName.empty())
 	{
 		std::cout << "enter nick name:" <<std::endl;
-		std::getline(std::cin, nickName);
+		if (!std::getline(std::cin, nickName))
+			return ;
 	}
 	while (phoneNumber.empty())
 	{
+		int	flag = 0;
 		std::cout << "enter phonenumber:" <<std::endl;
-		std::getline(std::cin, phoneNumber);
+		if (!std::getline(std::cin, phoneNumber))
+			return ;
+		for (size_t i = 0; i < phoneNumber.size() && !flag; i++)
+			flag = !std::isdigit(phoneNumber[i]);
+		if (flag) {
+			phoneNumber.clear();
+			continue;
+		}
 	}
 	while (darkestSecret.empty())
 	{
 		std::cout << "enter darkest secret:" <<std::endl;
-		std::getline(std::cin, darkestSecret);
+		if (!std::getline(std::cin, darkestSecret))
+			return ;
 	}
 
 	Contact newContact = Contact(firstName, lastName, nickName, phoneNumber, darkestSecret);
@@ -77,9 +89,6 @@ std::string Phonebook::fixStrLen(std::string og) {
 		og.resize(9);
 		og +=  ".";
 	}
-	else if (len < 10) {
-		og.resize(10, ' ');
-	}
 
 	return (og);
 }
@@ -89,15 +98,19 @@ void Phonebook::search(void) {
 	int	nbInput;
 	std::string input;
 
+	std::cout << "        nb| FirstName|  LastName|  Nickname" << std::endl;
 	for (i = 0; i < _nbContact; i++) {
 		std::cout << std::setw(10) << i 
-					<< "|" << fixStrLen(_contacts[i].retFirstName()) 
-					<< "|" << fixStrLen(_contacts[i].retLastName()) 
-					<< "|" << fixStrLen(_contacts[i].retNickName()) << std::endl;
+					<< "|" << std::setw(10) << fixStrLen(_contacts[i].retFirstName()) 
+					<< "|" << std::setw(10) << fixStrLen(_contacts[i].retLastName()) 
+					<< "|" << std::setw(10) << fixStrLen(_contacts[i].retNickName()) << std::endl;
 	}
+	std::cout << std::endl;
+
 	while (1) {
-		std::cout << "input number of contact to get full info" << std::endl;
-		std::getline(std::cin, input);
+		std::cout << "      input number of contact to get full info" << std::endl;
+		if (!std::getline(std::cin, input))
+			return ;
 		if (input.size() > 1) {
 			continue;
 		}
