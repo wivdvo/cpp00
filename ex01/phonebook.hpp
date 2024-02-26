@@ -1,6 +1,8 @@
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
 
+#pragma once
+
 #include "contact.hpp"
 #include <string>
 #include <iostream>
