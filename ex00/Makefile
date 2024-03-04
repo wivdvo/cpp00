@@ -1,6 +1,6 @@
 NAME = megaphone
 
-SRCS = megaphone.cpp
+SRCS = megaphone.cpp	
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -12,7 +12,7 @@ RM = rm -fr
 
 all: $(NAME)
 
-$(NAME):	$(OBJS)
+$(NAME):	$(OBJS) $(HEADERS)
 				$(CC) $(OBJS) $(CFLAGS) -o $(NAME)
 
 %.o: %.cpp

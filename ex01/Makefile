@@ -1,8 +1,11 @@
 NAME = phonebook
 
-SRCS =	contact.cpp \
-		phonebook.cpp \
+SRCS =	Contact.cpp \
+		Phonebook.cpp \
 		main.cpp
+
+HEADERS = Contact.hpp \
+			Phonebook.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -14,7 +17,7 @@ RM = rm -fr
 
 all: $(NAME)
 
-$(NAME):	$(OBJS)
+$(NAME):	$(OBJS) $(HEADERS)
 				$(CC) $(OBJS) $(CFLAGS) -o $(NAME)
 
 %.o: %.cpp
