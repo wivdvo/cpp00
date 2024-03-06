@@ -1,9 +1,6 @@
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
-
 #pragma once
 
-#include "contact.hpp"
+#include "Contact.hpp"
 #include <string>
 #include <iostream>
 #include <iomanip>
@@ -14,14 +11,14 @@ class Phonebook {
 	public:
 		Phonebook(void);
 		~Phonebook();
-		void addContacts(void);
-		void lstAllContacts(void);
 		void search(void);
-		std::string fixStrLen(std::string);
+		void addContacts(void);
 
 	private:
 		Contact _contacts[8];
 		int 	_nbContact;
-};
+		int		_index;
 
-#endif
+		void lstAllContacts(void);
+		std::string fixStrLen(std::string);
+};

@@ -1,7 +1,7 @@
-#include "contact.hpp"
-#include "phonebook.hpp"
+#include "Contact.hpp"
+#include "Phonebook.hpp"
 
-Phonebook::Phonebook(void) : _nbContact(0) {
+Phonebook::Phonebook(void) : _nbContact(0), _index(0) {
 	
 }
 
@@ -40,7 +40,13 @@ void Phonebook::addContacts(void) {
 		std::cout << "enter phonenumber:" <<std::endl;
 		if (!std::getline(std::cin, phoneNumber))
 			return ;
-		for (size_t i = 0; i < phoneNumber.size() && !flag; i++)
+		if (phoneNumber[0] != '+' && std::isdigit(phoneNumber[0]) == 0)
+		{
+
+			phoneNumber.clear();
+			continue;
+		}
+		for (size_t i = 1; i < phoneNumber.size() && !flag; i++)
 			flag = !std::isdigit(phoneNumber[i]);
 		if (flag) {
 			phoneNumber.clear();
@@ -55,21 +61,16 @@ void Phonebook::addContacts(void) {
 	}
 
 	Contact newContact = Contact(firstName, lastName, nickName, phoneNumber, darkestSecret);
+
 	if (_nbContact < 8)
 	{
-		_contacts[_nbContact] = newContact;
 		_nbContact++;
 	}
-	else {
-		_contacts[0] = _contacts[1];
-		_contacts[1] = _contacts[2];
-		_contacts[2] = _contacts[3];
-		_contacts[3] = _contacts[4];
-		_contacts[4] = _contacts[5];
-		_contacts[5] = _contacts[6];
-		_contacts[6] = _contacts[7];
-		_contacts[7] = newContact; 
-	}
+	_index++;
+	if (_index == 8)
+		_index = 0;
+
+	_contacts[_index] = newContact;
 }
 
 void Phonebook::lstAllContacts(void) {

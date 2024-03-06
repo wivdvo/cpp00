@@ -8,7 +8,7 @@ void megaphone(std::string input) {
 			input[i] = toupper(input[i]);
 		}
 	}
-	std::cout << input << std::endl;
+	std::cout << input;
 }
 
 int main(int ac, char **av) {
@@ -18,5 +18,6 @@ int main(int ac, char **av) {
 		for (int i = 1; i < ac; i++)
 			megaphone(av[i]);
 	}
+	std::cout << std::endl;
 	return (0);
 }

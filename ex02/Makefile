@@ -3,7 +3,7 @@ NAME = tests
 SRCS =	tests.cpp \
 		Account.cpp
 
-HEADERS Account.hpp
+HEADERS = Account.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -18,7 +18,7 @@ all: $(NAME)
 $(NAME):	$(OBJS) $(HEADERS)
 				$(CC) $(OBJS) $(CFLAGS) -o $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:		
