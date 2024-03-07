@@ -101,6 +101,11 @@ void Phonebook::search(void) {
 	int	nbInput;
 	std::string input;
 
+	if (_nbContact == 0)
+	{
+		std::cout << "Add a contact first!" << std::endl << std::endl;
+		return;
+	}
 	std::cout << "        nb| FirstName|  LastName|  Nickname" << std::endl;
 	for (i = 0; i < _nbContact; i++) {
 		std::cout << std::setw(10) << i 

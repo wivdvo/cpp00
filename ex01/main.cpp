@@ -18,6 +18,11 @@ int main() {
 			myPhonebook.addContacts();
 		}
 		else if (input == "SEARCH") {
+			// if (myPhonebook._nbContact == 0)
+			// {
+			// 	std::cout << "you dont have any contacts" << std::endl;
+			// 	continue;
+			// }
 			myPhonebook.search();
 		}
 		else if (input == "EXIT") {
