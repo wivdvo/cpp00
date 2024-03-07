@@ -62,15 +62,17 @@ void Phonebook::addContacts(void) {
 
 	Contact newContact = Contact(firstName, lastName, nickName, phoneNumber, darkestSecret);
 
-	if (_nbContact < 8)
-	{
-		_nbContact++;
-	}
-	_index++;
+
+	
 	if (_index == 8)
 		_index = 0;
 
 	_contacts[_index] = newContact;
+	_index++;
+	if (_nbContact < 8)
+	{
+		_nbContact++;
+	}
 }
 
 void Phonebook::lstAllContacts(void) {

@@ -13,7 +13,7 @@ void megaphone(std::string input) {
 
 int main(int ac, char **av) {
 	if (ac == 1)
-		std::cout << " * LOUD AND UNBEARABLE FEEDBSCK NOISE * " << std::endl;
+		std::cout << " * LOUD AND UNBEARABLE FEEDBSCK NOISE * ";
 	else {
 		for (int i = 1; i < ac; i++)
 			megaphone(av[i]);
