@@ -128,6 +128,6 @@ void Account::_displayTimestamp(void)
 
 	std::cout << str << " ";
 
-	//std::cout << "[19920104_091532] ";
+	// std::cout << "[19920104_091532] ";
 }
 

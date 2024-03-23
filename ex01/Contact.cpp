@@ -1,18 +1,12 @@
 #include "Phonebook.hpp"
 #include "Contact.hpp"
 
-Contact::Contact(void) {
-
-}
+Contact::Contact(void) {}
 
 Contact::Contact(std::string firstName, std::string lastName, std::string nickName, std::string phoneNumber, std::string darkestSecret) 
-			: _firstName(firstName), _lastName(lastName), _nickName(nickName), _phoneNumber(phoneNumber), _darkestSecret(darkestSecret) {
+			: _firstName(firstName), _lastName(lastName), _nickName(nickName), _phoneNumber(phoneNumber), _darkestSecret(darkestSecret) {}
 
-}
-
-Contact::~Contact() {
-
-}
+Contact::~Contact() {}
 
 void Contact::lstOneContact(void) const{
 	std::cout << "first name: " << _firstName << std::endl;
